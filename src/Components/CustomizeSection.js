@@ -122,8 +122,9 @@ const CustomizeSection = () => {
                     <button
                       type="submit"
                       className="btn btn-primary btn-raised"
+                      disabled={!order.customer || !order.bicycle_id}
                     >
-                      Send Message
+                      Place Order
                     </button>
                   </div>
                 </div>

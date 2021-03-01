@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import AddBicycle from "./AddBicycle";
 import AddOption from "./AddOption";
 import AddProperty from "./AddProperty";
+import Orders from "./Orders";
 const AdminHome = () => {
   return (
     <div className="main main-raised">
@@ -12,7 +13,7 @@ const AdminHome = () => {
             <div className="col-lg-12 ml-auto mr-auto">
               <h2 className="text-center title">Admin Section</h2>
               <Link to="/">
-                <i class="fa fa-globe website_icon" aria-hidden="true">
+                <i className="fa fa-globe website_icon" aria-hidden="true">
                   {" "}
                   web
                 </i>
@@ -80,7 +81,7 @@ const AdminHome = () => {
                       <AddOption />
                     </div>
                     <div className="tab-pane" id="tasks-1">
-                      test3
+                      <Orders />
                     </div>
                   </div>
                 </div>
