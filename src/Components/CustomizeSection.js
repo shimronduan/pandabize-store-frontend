@@ -3,23 +3,25 @@ import { baseUrl } from "../Config";
 import BicycleContext from "../Context/BicycleContext";
 
 const axios = require("axios");
+let options = [];
 
 const CustomizeSection = () => {
   const context = useContext(BicycleContext);
   const [order, setOrder] = useState({});
 
-  const [options, setOptions] = useState([]);
+  // const [options, setOptions] = useState([]);
 
   const [propertySection, setPropertySection] = useState([]);
   const optionChangeHandler = (option_id, item_id) => {
     const tempOptions = options.filter((o) => o.item_id != item_id);
     tempOptions.push({ option_id, item_id });
-    setOptions([...options, { option_id, item_id }]);
+    options = tempOptions;
     debugger;
   };
 
   const bicycleChangeHandler = (e) => {
-    setOptions([]);
+    // setOptions([]);
+    options = [];
     const id = e.target.value;
     if (id !== "") {
       setOrder({ ...order, bicycle_id: id });
@@ -61,10 +63,12 @@ const CustomizeSection = () => {
       .post(baseUrl + "/order", {
         customer: order.customer,
         options: tempOption,
+        bicycle_id: order.bicycle_id,
       })
       .then(function (response) {
         debugger;
-        setOptions([]);
+        options = [];
+        setPropertySection([]);
         setOrder({});
       })
       .catch(function (error) {

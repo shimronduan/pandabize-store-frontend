@@ -43,7 +43,7 @@ const Orders = () => {
             {list.map((o) => (
               <tr key={o.id}>
                 <td>{o.customer}</td>
-                <td>{o.customer}</td>
+                <td>{o.bicycle.name}</td>
                 <td>
                   {o.customizations.map((custom) => {
                     const selectOpt = getOptionById(custom.option_id);
