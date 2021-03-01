@@ -50,7 +50,7 @@ const Orders = () => {
                     return (
                       selectOpt &&
                       selectOpt.item && (
-                        <div>
+                        <div key={custom.option_id}>
                           <b>{selectOpt.item.Name}: &nbsp;</b>
                           <label>{selectOpt.Name}</label>
                           <br />

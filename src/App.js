@@ -29,9 +29,8 @@ function App() {
     const tempList = [...bicycleList, obj];
     setBicycleList(tempList);
   };
-  const editBicycleHandler = (obj) => {
-    const tempList = [...bicycleList, obj];
-    setBicycleList(tempList);
+  const editBicycleHandler = () => {
+    refeshBicycleContext();
   };
   const deleteBicycleHandler = (id) => {
     const filteredList = bicycleList.filter((i) => i.id !== id);
