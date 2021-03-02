@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { baseUrl } from "../../Config";
 import BicycleContext from "../../Context/BicycleContext";
-
+import { CustomDialog, useDialog } from "react-st-modal";
 const axios = require("axios");
 
 const AddOption = () => {
@@ -62,6 +62,60 @@ const AddOption = () => {
       setItemOption({ ...itemOption, bicycle_id: "" });
     }
   };
+  const updateOptionHandler = (obj) => {
+    if (obj) {
+      axios
+        .put(baseUrl + "/option/" + obj.id, {
+          Name: obj.name,
+        })
+        .then(function (response) {
+          context.editBicycleHandler();
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  };
+  function CustomDialogContent(props) {
+    const dialog = useDialog();
+
+    const [name, setName] = useState();
+    const [id, setId] = useState();
+
+    useEffect(() => {
+      setName(props.name);
+      setId(props.id);
+    }, [props.name]);
+
+    return (
+      <div style={{ margin: "10px", overflowX: "hidden" }}>
+        <div className="row">
+          <div className="col-md-12">
+            <div className="form-group">
+              <label className="bmd-label-floating">Propery Name</label>
+              <input
+                type="text"
+                className="form-control"
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+                value={name || ""}
+              />
+              <button
+                className="btn btn-primary btn-raised"
+                onClick={() => {
+                  // Сlose the dialog and return the value
+                  dialog.close({ name, id });
+                }}
+              >
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div>
       <form onSubmit={createOptionHandler}>
@@ -154,7 +208,19 @@ const AddOption = () => {
                         <td>{i.Name}</td>
                         <td>{o.Name}</td>
                         <td>
-                          <button className="btn btn-primary btn-fab btn-sm btn-round">
+                          <button
+                            className="btn btn-primary btn-fab btn-sm btn-round"
+                            onClick={async () => {
+                              const result = await CustomDialog(
+                                <CustomDialogContent name={o.Name} id={o.id} />,
+                                {
+                                  title: "Update Property",
+                                  showCloseIcon: true,
+                                }
+                              );
+                              updateOptionHandler(result);
+                            }}
+                          >
                             <i className="material-icons">mode</i>
                             <div className="ripple-container"></div>
                           </button>

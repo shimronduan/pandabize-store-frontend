@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { baseUrl } from "../Config";
 import BicycleContext from "../Context/BicycleContext";
-
+import { Alert } from "react-st-modal";
 const axios = require("axios");
 let options = [];
 
@@ -65,11 +65,12 @@ const CustomizeSection = () => {
         options: tempOption,
         bicycle_id: order.bicycle_id,
       })
-      .then(function (response) {
+      .then(async function (response) {
         debugger;
         options = [];
         setPropertySection([]);
         setOrder({});
+        await Alert("Order placed successfully.", "Congratz..");
       })
       .catch(function (error) {
         debugger;
@@ -77,6 +78,7 @@ const CustomizeSection = () => {
       });
     console.log(options);
   };
+
   return (
     <div className="main main-raised">
       <div className="container">

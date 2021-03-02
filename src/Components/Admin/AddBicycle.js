@@ -10,7 +10,6 @@ const AddBicycle = () => {
   const [modelName, setName] = useState("");
 
   const updateBicycleHandler = (obj) => {
-    debugger;
     if (obj) {
       axios
         .put(baseUrl + "/bicycle/" + obj.id, {

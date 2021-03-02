@@ -32,17 +32,11 @@ const Navbar = () => {
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link
-                className="nav-link"
-                rel="tooltip"
-                title=""
-                data-placement="bottom"
-                data-original-title="Admin"
-                to="/admin"
-              >
+              <Link className="nav-link" title="" to="/admin">
                 <i className="material-icons admin_icon_home">
                   admin_panel_settings
                 </i>
+                Admin
               </Link>
             </li>
           </ul>
