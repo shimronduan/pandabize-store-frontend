@@ -7,27 +7,21 @@ const CustomFooter = () => {
         <nav className="float-left">
           <ul>
             <li>
-              <a href="https://www.creative-tim.com/">Creative Tim</a>
+              <a href="/">Careers</a>
             </li>
             <li>
-              <a href="https://www.creative-tim.com/presentation">About Us</a>
+              <a href="/">About Us</a>
             </li>
             <li>
-              <a href="https://www.creative-tim.com/blog">Blog</a>
-            </li>
-            <li>
-              <a href="https://www.creative-tim.com/license">Licenses</a>
+              <a href="/">Blog</a>
             </li>
           </ul>
         </nav>
         <div className="copyright float-right">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script>, made with{" "}
-          <i className="material-icons">favorite</i> by
+          <i className="material-icons">favorite</i>{" "}
           <span href="https://www.creative-tim.com/" target="_blank">
-            Creative Tim
+            Shimron Duan
           </span>{" "}
-          for a better web.
         </div>
       </div>
     </footer>
