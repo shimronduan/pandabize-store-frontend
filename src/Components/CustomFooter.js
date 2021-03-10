@@ -7,13 +7,22 @@ const CustomFooter = () => {
         <nav className="float-left">
           <ul>
             <li>
-              <a href="/">Careers</a>
+              <a
+                href="https://github.com/shimronduan/pandabize-store-api"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Backend
+              </a>
             </li>
             <li>
-              <a href="/">About Us</a>
-            </li>
-            <li>
-              <a href="/">Blog</a>
+              <a
+                href="https://github.com/shimronduan/pandabize-store-frontend"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Frontend
+              </a>
             </li>
           </ul>
         </nav>
